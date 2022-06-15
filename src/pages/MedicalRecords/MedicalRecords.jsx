@@ -76,7 +76,7 @@ export default function MedicalRecords() {
                   autoComplete="age"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   type="date"
                   required
@@ -170,7 +170,7 @@ export default function MedicalRecords() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   type="number"
                   autoComplete="given-name"
@@ -182,7 +182,7 @@ export default function MedicalRecords() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   type="textarea"
                   multiline
@@ -196,7 +196,7 @@ export default function MedicalRecords() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   type="textarea"
                   multiline
@@ -210,7 +210,7 @@ export default function MedicalRecords() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   type="textarea"
                   multiline

@@ -75,7 +75,7 @@ export default function RegisterPatient() {
                   autoComplete="age"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   type="date"
                   required

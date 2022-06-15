@@ -20,7 +20,7 @@ export default function Home() {;
       <Container component="main" maxWidth="xs">
         <CssBaseline /> 
           <Box sx={{ width: '100%' }}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} margin="35%">
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} margin="25%">
               <Grid item xs={12}>
                 <img
                 className="brands"
