@@ -1,71 +1,23 @@
-import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Button,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import LoginIcon from "@material-ui/icons/PeopleAltRounded";
-import HomeIcon from "@material-ui/icons/HomeOutlined";
-import { Link } from "react-router-dom";
-class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      drawer: false,
-    };
+import { slide as Menu } from 'react-burger-menu'
+import * as React from "react";
+import "./Menu.css";
+class Example extends React.Component {
+  showSettings (event) {
+    event.preventDefault();
   }
-  toggleDrawer = () => {
-    this.setState({
-      drawer: !this.state.drawer,
-    });
-  };
-  render() {
+
+  render () {
+    // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
     return (
-      <div>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton color="inherit" onClick={this.toggleDrawer}>
-              <MenuIcon />
-            </IconButton>
-            <Typography style={{ marginLeft: "auto" }}>
-              <Button color="inherit" variant="outlined" style={{ margin: 3 }}>
-                <LoginIcon /> Login
-              </Button>
-              <Button color="inherit" variant="outlined" style={{ margin: 3 }}>
-                <LoginIcon /> SignUp
-              </Button>
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          open={this.state.drawer}
-          onClose={this.toggleDrawer}
-          style={{ width: 300 }}
-        >
-          <Typography align="center">
-            <List>
-              <ListItem>
-                <Link to="/">
-                  <ListItemText>
-                    <Button color="secondary" onClick={this.toggleDrawer}>
-                      <HomeIcon /> Home
-                    </Button>
-                  </ListItemText>
-                </Link>
-              </ListItem>
-            </List>
-          </Typography>
-        </Drawer>
-      </div>
+      <Menu>
+        <a id="home" className="menu-item" href="/home">Home</a>
+        <a id="about" className="menu-item" href="/patient_filter">Dashboard pacientes</a>
+        <a id="contact" className="menu-item" href="/hospital_filter">Dashboard hospitais</a>
+        <a id="contact" className="menu-item" href="/pacientes">Pacientes cadastrados</a>
+        <a id="contact" className="menu-item" href="/">Sair</a>
+        <a id="contact" className="menu-item" href="/contact">Suporte</a>
+      </Menu>
     );
   }
 }
-export default NavBar;
+export default Example;

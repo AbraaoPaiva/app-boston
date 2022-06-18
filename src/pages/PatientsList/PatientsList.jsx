@@ -16,7 +16,13 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-
+import SearchIcon from '@mui/icons-material/Search';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button } from "@mui/material";
+import Menu from "../../components/Menu/Menu";
 const theme = createTheme();
 
 const ExpandMore = styled((props) => {
@@ -39,17 +45,15 @@ export default function Patients() {
       password: data.get("password"),
     });
   };
-  const [age, setAge] = React.useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
   return (
+    <>
+    <Menu />
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -61,14 +65,18 @@ export default function Patients() {
             alignItems: "center",
           }}
         >
-          <Typography component="h1" variant="h5">
-            <strong>Registro dos Pacientes</strong>
-          </Typography>
+          <Input
+            fullWidth
+            id="input-with-icon-adornment"
+            startAdornment={
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            }
+          />
+          <Button variant="text" fullWidth href="/home_boston"><ArrowBackIcon /> Voltar</Button>
           <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
+            sx={{ mt: 2, alignItems: "center" }}
           >
             <Grid container spacing={2} marginTop={5}>
               <Grid item xs={12} sm={12}>
@@ -79,16 +87,11 @@ export default function Patients() {
                         F
                       </Avatar>
                     }
-                    action={
-                      <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                      </IconButton>
-                    }
                     title="Fulano de tal"
                     subheader="Último registro: Setembro de 2022"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" textAlign="justify">
                       TLorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -109,12 +112,12 @@ export default function Patients() {
                   </CardActions>
                   <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                      <Typography paragraph>Method:</Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">Method:</Typography>
+                      <Typography paragraph textAlign="justify">
                         Heat 1/2 cup of the broth in a pot until simmering, add
                         saffron and set aside for 10 minutes.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text ever since the 1500s,
@@ -122,7 +125,7 @@ export default function Patients() {
                         scrambled it to make a type specimen book. It has
                         survived not only five centuries.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Add rice and stir very gently to distribute. Top with
                         artichokes and peppers, and cook without stirring, until
                         most of the liquid is absorbed, 15 to 18 minutes. Reduce
@@ -132,7 +135,7 @@ export default function Patients() {
                         tender, 5 to 7 minutes more. (Discard any mussels that
                         don&apos;t open.)
                       </Typography>
-                      <Typography>
+                      <Typography textAlign="justify">
                         Set aside off of the heat to let rest for 10 minutes,
                         and then serve.
                       </Typography>
@@ -147,17 +150,12 @@ export default function Patients() {
                       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
                         J
                       </Avatar>
-                    }
-                    action={
-                      <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                      </IconButton>
                     }
                     title="José da silva"
                     subheader="Último registro: Junho de 2022"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" textAlign="justify">
                       TLorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -178,12 +176,12 @@ export default function Patients() {
                   </CardActions>
                   <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                      <Typography paragraph>Method:</Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">Method:</Typography>
+                      <Typography paragraph textAlign="justify">
                         Heat 1/2 cup of the broth in a pot until simmering, add
                         saffron and set aside for 10 minutes.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text ever since the 1500s,
@@ -191,7 +189,7 @@ export default function Patients() {
                         scrambled it to make a type specimen book. It has
                         survived not only five centuries.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Add rice and stir very gently to distribute. Top with
                         artichokes and peppers, and cook without stirring, until
                         most of the liquid is absorbed, 15 to 18 minutes. Reduce
@@ -201,7 +199,7 @@ export default function Patients() {
                         tender, 5 to 7 minutes more. (Discard any mussels that
                         don&apos;t open.)
                       </Typography>
-                      <Typography>
+                      <Typography textAlign="justify">
                         Set aside off of the heat to let rest for 10 minutes,
                         and then serve.
                       </Typography>
@@ -217,16 +215,11 @@ export default function Patients() {
                         J
                       </Avatar>
                     }
-                    action={
-                      <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                      </IconButton>
-                    }
                     title="João Ferreira Vieira"
                     subheader="Último registro: Junho de 2022"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" textAlign="justify">
                       TLorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -247,12 +240,12 @@ export default function Patients() {
                   </CardActions>
                   <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                      <Typography paragraph>Method:</Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">Method:</Typography>
+                      <Typography paragraph textAlign="justify">
                         Heat 1/2 cup of the broth in a pot until simmering, add
                         saffron and set aside for 10 minutes.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text ever since the 1500s,
@@ -260,7 +253,7 @@ export default function Patients() {
                         scrambled it to make a type specimen book. It has
                         survived not only five centuries.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Add rice and stir very gently to distribute. Top with
                         artichokes and peppers, and cook without stirring, until
                         most of the liquid is absorbed, 15 to 18 minutes. Reduce
@@ -270,7 +263,7 @@ export default function Patients() {
                         tender, 5 to 7 minutes more. (Discard any mussels that
                         don&apos;t open.)
                       </Typography>
-                      <Typography>
+                      <Typography textAlign="justify">
                         Set aside off of the heat to let rest for 10 minutes,
                         and then serve.
                       </Typography>
@@ -286,16 +279,11 @@ export default function Patients() {
                         A
                       </Avatar>
                     }
-                    action={
-                      <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                      </IconButton>
-                    }
                     title="Abraão Paiva"
                     subheader="Último registro: Janeiro de 2019"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" textAlign="justify">
                       TLorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -316,12 +304,12 @@ export default function Patients() {
                   </CardActions>
                   <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                      <Typography paragraph>Method:</Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">Method:</Typography>
+                      <Typography paragraph textAlign="justify">
                         Heat 1/2 cup of the broth in a pot until simmering, add
                         saffron and set aside for 10 minutes.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text ever since the 1500s,
@@ -329,7 +317,7 @@ export default function Patients() {
                         scrambled it to make a type specimen book. It has
                         survived not only five centuries.
                       </Typography>
-                      <Typography paragraph>
+                      <Typography paragraph textAlign="justify">
                         Add rice and stir very gently to distribute. Top with
                         artichokes and peppers, and cook without stirring, until
                         most of the liquid is absorbed, 15 to 18 minutes. Reduce
@@ -339,7 +327,7 @@ export default function Patients() {
                         tender, 5 to 7 minutes more. (Discard any mussels that
                         don&apos;t open.)
                       </Typography>
-                      <Typography>
+                      <Typography textAlign="justify">
                         Set aside off of the heat to let rest for 10 minutes,
                         and then serve.
                       </Typography>
@@ -352,5 +340,6 @@ export default function Patients() {
         </Box>
       </Container>
     </ThemeProvider>
+    </>
   );
 }
